@@ -1,0 +1,44 @@
+import java.util.Scanner;
+class ArmstrongNumber 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Number");
+		int num=sc.nextInt();//153
+		int temp=num;//153
+		int count=iscount(num);//3
+		int sum=0;//27
+       
+		while(num>0)//153>0,15>0
+		{
+			sum=sum+ispower(num%10,count);//0+27
+			num=num/10;
+		}
+		if(sum==temp)
+			System.out.println("Armstrong Number");
+		else
+			System.out.println("Not Armstrong Number");
+	}
+	public static int iscount(int a)//153
+	{
+		int c=0;//1,2,3
+		while(a>0)//153>0,15>0,1>0,0>0
+		{
+		    c++;
+			a=a/10;//15,1,0
+		}
+		return c;//3
+	}
+	public static int ispower(int b,int power)//(3,3)
+	{ 
+		
+		int value=1;//27
+		while(power>0)//3>0,2>0,1>0,0>0
+		{
+			value=value*b;//1*3,3*3,9*3
+			power--;
+		}
+		return value;//27
+	}
+}
